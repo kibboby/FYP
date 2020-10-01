@@ -1,9 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from 'react';
+//import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button,TouchableOpacity} from 'react-native';
 
-export default function App() {
 
+//export default function App() {
+export default class Touchables extends Component {
+
+ _onPressLoginButton() {
+    alert('Wrong username/password')
+  }
+
+  _onPressForgotButton() {
+    alert('You May Reset Your Password Here')
+  }
+
+   state={
+    user:"",
+    password:""
+  }
+
+    
+ render() {
   return (
     <View style={styles.container}>
 
@@ -15,7 +33,9 @@ export default function App() {
       <Text style={styles.username}>Username : </Text>
       <TextInput 
       style={styles.input}
-      placeholder='user'/>
+      placeholder='User'
+      onChangeText={text => this.setState({user:text})}
+       />
     </View>
 
     <View style={styles.passwordC}>
@@ -23,14 +43,23 @@ export default function App() {
       <TextInput 
       secureTextEntry={true} 
       style={styles.input}
-      placeholder='psw'/>
+      placeholder='Psw'
+      onChangeText={text => this.setState({password:text})}
+      />
+    </View>
+
+    <View>
+     <TouchableOpacity
+      onPress={this._onPressForgotButton}>
+          <Text style={styles.forgot}>Forgot Password?</Text>
+     </TouchableOpacity>
     </View>
 
     <View>
         <TouchableOpacity
             style={styles.LoginButton}
-            //onPress={this.onSubmit}
-            // disabled={!this.state.isFormValid}
+            onPress={this._onPressLoginButton}
+            //disabled={!this.state.isFormValid}
             >
             <Text style={styles.Login}>LOGIN</Text>
      </TouchableOpacity>
@@ -43,7 +72,7 @@ export default function App() {
       <StatusBar style="auto" />
     </View>
   );
-}
+}}
 
 const styles = StyleSheet.create({
   container: {
@@ -84,6 +113,11 @@ const styles = StyleSheet.create({
     marginTop:5,
     width:200,
     alignSelf: 'flex-start',
+  },
+
+  forgot:{
+    color:"blue",
+    fontSize:11
   },
 
   LoginButton: {
