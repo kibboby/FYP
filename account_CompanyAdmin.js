@@ -26,8 +26,8 @@ const CompanyAccount = () => {
 
             <View>
                 <View style={styles.Direction}>
-                    <Text style={styles.Text}>Username</Text>
-                    <Text style={styles.Info}>John David Beckham</Text>
+                    <Text style={styles.Text}>Company</Text>
+                    <Text style={styles.Info}>ABC Company</Text>
                 </View>
 
                 <View style={styles.Direction}>
