@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Platform, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-const HelloWorldApp = () => {
+const Salesperson = () => {
     return (
         <View
             style={{
@@ -12,22 +12,20 @@ const HelloWorldApp = () => {
             }}>
 
 
-            <TouchableWithoutFeedback>
-                <View style={styles.Direction}>
-                    <Icon
-                        name='user'
-                        size={55}
-                        style={styles.profileImg} />
-                    <View>
-                        <Text style={styles.Username}>
-                            John David
+            <View style={styles.Direction}>
+                <Icon
+                    name='user'
+                    size={55}
+                    style={styles.profileImg} />
+                <View>
+                    <Text style={styles.Username}>
+                        John David
                     </Text>
-                        <Text style={styles.designation}>
-                            Salesperson
+                    <Text style={styles.designation}>
+                        Salesperson
                     </Text>
-                    </View>
                 </View>
-            </TouchableWithoutFeedback>
+            </View>
             <View style={styles.Direction}>
                 <View style={styles.Text}>
                     <Text style={styles.TextMargin}>Name</Text>
@@ -69,7 +67,7 @@ const HelloWorldApp = () => {
         </View>
     )
 }
-export default HelloWorldApp;
+export default Salesperson;
 
 const styles = StyleSheet.create({
     Direction: {
@@ -107,7 +105,7 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         fontSize: 14,
     },
-    TextMargin:{
+    TextMargin: {
         marginBottom: 5
     },
     TaskTitle: {
