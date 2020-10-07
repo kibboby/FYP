@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { Component } from 'react';
 //import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button,TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button,TouchableOpacity, ImageBackground} from 'react-native';
 
 
 //export default function App() {
@@ -24,10 +24,14 @@ export default class Touchables extends Component {
  render() {
   return (
     <View style={styles.container}>
-
+    {/* https://wallpaperaccess.com/full/1503970.jpg */}
+    <ImageBackground source={{uri: 'https://images.unsplash.com/photo-1562710057-b3a85fa9ba85?ixlib=rb-1.2.1&w=1000&q=80'}} style={styles.image}>
+    
     <View style={styles.titleC}>
       <Text style={styles.title}>Sales Customer Management System</Text>
     </View>
+
+    <View style={styles.uandp}>
 
     <View style={styles.usernameC}>
       <Text style={styles.username}>Username : </Text>
@@ -57,29 +61,49 @@ export default class Touchables extends Component {
 
     <View>
         <TouchableOpacity
-            style={styles.LoginButton}
-            onPress={this._onPressLoginButton}
-            //disabled={!this.state.isFormValid}
-            >
-            <Text style={styles.Login}>LOGIN</Text>
+         style={styles.LoginButton}
+         onPress={this._onPressLoginButton}
+         //disabled={!this.state.isFormValid}
+         >
+         <Text style={styles.Login}>SIGN IN</Text>
      </TouchableOpacity>
      </View>
 
-    
+     </View>
 
-
-
+  
       <StatusBar style="auto" />
+    </ImageBackground>
     </View>
+     
   );
 }}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    //backgroundColor: '#fff',
+    backgroundColor:"grey",
     alignItems: 'center',
-    justifyContent: 'center',
+    //justifyContent: 'center',
+  },
+
+  image: {
+    flex: 1,
+    width:'100%',
+    height:'100%',
+    resizeMode: "cover",
+    justifyContent: "center"
+
+  },
+
+  uandp:{
+  backgroundColor:"white",
+  padding: 50,
+  marginLeft: "18%",
+  marginRight: "18%",
+  alignItems:'center',
+  //justifyContent: 'center',
   },
 
   titleC: {
@@ -89,9 +113,11 @@ const styles = StyleSheet.create({
   },
 
   title: {
+    //40
     fontSize: 40,
     textAlign: 'center',
     fontWeight: "bold",
+    color:"white",
 
   },
 
@@ -116,24 +142,28 @@ const styles = StyleSheet.create({
   },
 
   forgot:{
-    color:"blue",
-    fontSize:11
+    color:"black",
+    fontWeight:"bold",
+    fontSize:15,
+    textAlign:"center",
   },
 
   LoginButton: {
     width: 200,
     marginTop: 20,
-    backgroundColor: "green",
+    backgroundColor: "black",
     padding: 10,
-    borderRadius: 50,
+    //borderRadius: 50,
   },
 
   username: {
   fontSize: 20,
+  fontWeight: "bold"
   },
 
   password:{
   fontSize: 20,
+  fontWeight: "bold"
   },
 
   Login: {
@@ -143,9 +173,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     textAlign: "center",
   },
-
-
-
-
   
 });
