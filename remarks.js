@@ -80,12 +80,20 @@ const styles = StyleSheet.create({
   //borderColor:'gray'
   backgroundColor:'lightgrey',
   height:200,
+  borderTopLeftRadius: 5,
+  borderTopRightRadius: 5,
+  borderBottomLeftRadius: 5,
+  borderBottomRightRadius: 5,
   },
 
   SubmitButtonR:{
   marginTop: 20,
   backgroundColor: "black",
   padding: 10,
+  borderTopLeftRadius: 5,
+  borderTopRightRadius: 5,
+  borderBottomLeftRadius: 5,
+  borderBottomRightRadius: 5,
   },
 
   SubmitR:{
