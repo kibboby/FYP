@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'Left',
+    //alignItems: 'Left',
     padding:"10%"
   },
 
@@ -105,8 +105,7 @@ const styles = StyleSheet.create({
   Button:{
   backgroundColor:'black',
   padding: 10,
-  width:200,
-  textAlign:'center',
+  width:150,
   borderTopLeftRadius: 5,
   borderTopRightRadius: 5,
   borderBottomLeftRadius: 5,
@@ -114,6 +113,7 @@ const styles = StyleSheet.create({
   },
 
   ButtonContent:{
+  textAlign:'center',
   color:"white",
   fontWeight:'bold',
   },

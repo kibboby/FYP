@@ -21,7 +21,7 @@ render(){
             <Text style={styles.Remarks}>Remarks</Text>
             <TextInput 
             style={styles.inputR}
-            placeholder='Write fown your justification here'
+            placeholder='Write down your justification here'
             multiline={true}
             autoFocus={true}
             onChangeText={(text) => {this.setState(() => {
@@ -56,18 +56,18 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'Left',
+    //alignItems: 'Left',
     padding:"10%"
     //justifyContent: 'center',
   },
 
   RemarksC:{
   //margintop:50,
-  backgroundColor:"White",
+  backgroundColor:"white",
   },
 
   Remarks:{
-  margintop:"10%",
+  //marginTop:"10%",
   color:"black",
   fontWeight:"bold",
   //fontSize:14,
