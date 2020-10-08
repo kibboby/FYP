@@ -1,73 +1,79 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Platform, StyleSheet, Text, View, TouchableHighlight } from 'react-native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { Card } from 'react-native-paper';
 
-const Salesperson = () => {
-    return (
-        <View
-            style={{
-                flex: 1,
-            }}>
+export default class SalesPersonAccount extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            TaskList: [
+                { Type: 'Others', Date: '25/11/2020' }
+            ]
+        }
+    }
+    render() {
+        return (
+            <View
+                style={{
+                    flex: 1,
+                }}>
 
 
-            <View style={styles.Direction}>
-                <Icon
-                    name='user'
-                    size={55}
-                    style={styles.profileImg} />
-                <View>
-                    <Text style={styles.Username}>
-                        John David
+                <View style={styles.Direction}>
+                    <Icon
+                        name='user'
+                        size={55}
+                        style={styles.profileImg} />
+                    <View>
+                        <Text style={styles.Username}>
+                            John David
                     </Text>
-                    <Text style={styles.designation}>
-                        Salesperson
+                        <Text style={styles.designation}>
+                            Salesperson
                     </Text>
+                    </View>
                 </View>
-            </View>
-            <View style={styles.Direction}>
-                <View style={styles.Text}>
-                    <Text style={styles.TextMargin}>Name</Text>
-                    <Text style={styles.TextMargin}>Email</Text>
-                    <Text style={styles.TextMargin}>Contact</Text>
+                <View style={styles.Direction}>
+                    <View style={styles.Text}>
+                        <Text style={styles.TextMargin}>Name</Text>
+                        <Text style={styles.TextMargin}>Email</Text>
+                        <Text style={styles.TextMargin}>Contact</Text>
+                    </View>
+
+                    <View style={styles.Info}>
+                        <Text style={styles.TextMargin}>John David Beckham</Text>
+                        <Text style={styles.TextMargin}>abc@gmail.com</Text>
+                        <Text style={styles.TextMargin}>+6 012 345 6789</Text>
+                    </View>
                 </View>
 
-                <View style={styles.Info}>
-                    <Text style={styles.TextMargin}>John David Beckham</Text>
-                    <Text style={styles.TextMargin}>abc@gmail.com</Text>
-                    <Text style={styles.TextMargin}>+6 012 345 6789</Text>
-                </View>
-            </View>
-
-            <Text style={styles.TaskTitle}>
-                UPCOMING TASKS
+                <Text style={styles.TaskTitle}>
+                    UPCOMING TASKS
             </Text>
 
-            <View style={styles.Task}>
-                <Text style={styles.Type}>
-                    Others</Text>
-                <Text> | </Text>
-                <Text style={styles.Date}>25/10/2020</Text>
-            </View>
 
-            <View style={styles.Task}>
-                <Text style={styles.Type}>
-                    Others</Text>
-                <Text> | </Text>
-                <Text style={styles.Date}>25/10/2020</Text>
-            </View>
+            <FlatList
+                    data={this.state.TaskList}
+                    renderItem={({ item }) =>
 
-            <View style={styles.Task}>
-                <Text style={styles.Type}>
-                    Others</Text>
-                <Text> | </Text>
-                <Text style={styles.Date}>25/10/2020</Text>
+                        <Card style={styles.card}>
+                            <View style={styles.Task}>
+                                    <Text style={styles.Type}>{item.Type}</Text>
+                                    <Text style={styles.Date}> | </Text>
+                                    <Text style={styles.Date}>{item.Date}</Text>
+                            </View>
+                        </Card>
+                    }
+                    keyExtractor={item => item.ID}
+                />
             </View>
-        </View>
-    )
+        )
+    }
 }
-export default Salesperson;
 
 const styles = StyleSheet.create({
     Direction: {
@@ -118,16 +124,17 @@ const styles = StyleSheet.create({
     Task: {
         flexDirection: 'row',
         marginTop: 5,
-        marginStart: 15,
         backgroundColor: 'lightgrey',
         padding: 7,
-        width: 250,
-        marginBottom: 2
-    },
-    Type: {
-        marginStart: 5,
+        marginBottom: 2,
+        flexDirection: 'row',
     },
     Date: {
         marginStart: 5,
-    }
+    },
+    card: {
+        margin: 5,
+        backgroundColor: 'lightgrey',
+        borderRadius: 10
+    },
 });
