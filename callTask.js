@@ -110,13 +110,13 @@ const styles = StyleSheet.create({
   },
 
   Title:{
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 50,
     margin: 8,
   },
 
   allDay:{
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 20,
     margin: 8,
   },
@@ -136,7 +136,8 @@ const containerStyle = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   rowContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems:'baseline'
   },
   colContainer:{
     flexDirection: 'column'
@@ -163,7 +164,7 @@ const Timestyles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 20,
     
   },

@@ -3,7 +3,8 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, TextInput, Switch, StackScreen } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import TimePicker from "react-native-24h-timepicker";
-
+{/*import MapView from 'react-native-maps';
+import Marker from 'react-native-maps'; */}
 
 export default class appointmentTask extends React.Component {
     constructor(props){
@@ -78,7 +79,7 @@ export default class appointmentTask extends React.Component {
       </View>
       <View style={styles.container}>
         <Text>Location</Text>
-        <MapView
+        {/*<MapView
           style={styles.map}
           initialRegion={{
             latitude: 40.7030799,
@@ -86,7 +87,7 @@ export default class appointmentTask extends React.Component {
             latitudeDelta: 0,
             longitudeDelta: 0.05,
           }}>
-          <Marker
+          <MapView.Marker
             coordinate={{
               latitude: 40.7030799,
               longitude: -74.0559131,
@@ -94,7 +95,7 @@ export default class appointmentTask extends React.Component {
             title="Demo"
             description="A location to test"
           />
-        </MapView>
+          </MapView> */}
       </View>
       <View>
         <Text style={styles.allDay}>Notes</Text>
@@ -131,13 +132,13 @@ const styles = StyleSheet.create({
   },
 
   Title:{
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 50,
     margin: 8,
   },
 
   allDay:{
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 20,
     margin: 8,
   },
@@ -157,7 +158,8 @@ const containerStyle = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   rowContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems:'baseline'
   },
   colContainer:{
     flexDirection: 'column'
@@ -184,7 +186,7 @@ const Timestyles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 20,
     
   },

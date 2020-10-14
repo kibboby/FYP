@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, TextInput, Switch, StackScreen } from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View, TextInput, Switch, StackScreen, ScrollView } from 'react-native';
 import DatePicker from 'react-native-datepicker';
 import TimePicker from "react-native-24h-timepicker";
 
@@ -8,11 +8,11 @@ import TimePicker from "react-native-24h-timepicker";
 export default class otherTask extends React.Component {
     constructor(props){
     super(props)
-    this.state = {date:"2016-05-15"}
+    this.state = {date:"2020-10-12"}
     this.state = { time: ""}
   }
 
- 
+  
   onCancel() {
     this.TimePicker.close();
   }
@@ -23,8 +23,10 @@ export default class otherTask extends React.Component {
   }
 
     render(){
+      
   return (
     <View>
+      <ScrollView>
       <View>
         <Text style={styles.Title}>Date:</Text>
         <DatePicker
@@ -33,8 +35,8 @@ export default class otherTask extends React.Component {
         mode="date"
         placeholder="select date"
         format="YYYY-MM-DD"
-        minDate="2016-05-01"
-        maxDate="2016-06-01"
+        minDate="2020-05-01"
+        maxDate="5050-12-31"
         confirmBtnText="Confirm"
         cancelBtnText="Cancel"
         customStyles={{
@@ -72,7 +74,7 @@ export default class otherTask extends React.Component {
       <View style={containerStyle.rowContainer}>
         <Text style={styles.allDay}>All Day</Text>
         <Switch
-          style={{marginTop: 31}}
+          style={{}}
         />
       </View>
       <View>
@@ -92,6 +94,7 @@ export default class otherTask extends React.Component {
             </Text>
          </TouchableOpacity>
       </View>
+      </ScrollView>
     </View>
   );
 
@@ -110,13 +113,13 @@ const styles = StyleSheet.create({
   },
 
   Title:{
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 50,
     margin: 8,
   },
 
   allDay:{
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 20,
     margin: 8,
   },
@@ -136,7 +139,8 @@ const containerStyle = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   rowContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems:'baseline'
   },
   colContainer:{
     flexDirection: 'column'
@@ -163,7 +167,7 @@ const Timestyles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 30,
+    fontSize: 20,
     marginTop: 20,
     
   },
