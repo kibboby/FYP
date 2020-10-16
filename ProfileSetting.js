@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, TextInput} from 'react-native';
+//import { ScrollView } from 'react-native-gesture-handler';
 
 import ImagePicker from './imagePicker.js'
 export default class App extends Component {
@@ -27,7 +27,7 @@ render(){
     <ScrollView>
     <View style={styles.container}>
       <View>
-      <ImagePicker/>
+      <ImagePicker style={styles.imagepicker}/>
       </View>
         <Text style={styles.instruction}>Username</Text>
         <TextInput 
@@ -104,6 +104,7 @@ const styles = StyleSheet.create({
   instruction:{
   fontWeight:"bold",
   marginBottom:10,
+  marginTop:10,
   },
 
   input:{
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
   Button:{
   backgroundColor:"black",
   padding: 10,
-  width:150,
+  width:130,
   borderTopLeftRadius: 5,
   borderTopRightRadius: 5,
   borderBottomLeftRadius: 5,
