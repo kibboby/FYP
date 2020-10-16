@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, TextInput} from 'react-native';
-//import ImagePicker from 'react-native-image-picker';
+import { ScrollView } from 'react-native-gesture-handler';
 
-//export default function App() {
+import ImagePicker from './imagePicker.js'
 export default class App extends Component {
 
 _onPressCancel() {
@@ -24,8 +24,11 @@ state={
 
 render(){
   return (
+    <ScrollView>
     <View style={styles.container}>
-
+      <View>
+      <ImagePicker/>
+      </View>
         <Text style={styles.instruction}>Username</Text>
         <TextInput 
             //secureTextEntry={true} 
@@ -85,6 +88,7 @@ render(){
 
       <StatusBar style="auto" />
     </View>
+    </ScrollView>
   );
 }}
 
