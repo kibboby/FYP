@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
   marginTop:10,
   backgroundColor: "black",
   padding: 10,
-  width:100,
+  width:'30%',
   alignItems:"center",
   borderTopLeftRadius: 5,
   borderTopRightRadius: 5,
