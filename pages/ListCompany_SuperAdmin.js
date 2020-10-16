@@ -65,7 +65,7 @@ export default class ListofCompany extends Component {
                                 <View style={{ flexDirection: 'row' }}>
                                     <Text style={styles.CompanyName}>{item.CompanyName}</Text>
                                     <View style={{ justifyContent: "flex-end" }}>
-                                        <Icon name="right" size={15} style={styles.icon} />
+                                        <Icon name="right" size={15}/>
                                     </View>
                                 </View>
                             </Card>
