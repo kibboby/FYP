@@ -147,13 +147,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 12
   },
-  pieChartArea: {
-    height: '30%',
-    borderColor: 1,
-    borderWidth: 1,
-    width: '60%',
-    alignSelf: 'center'
-  },
   AdminName: {
     fontSize: 12,
     flex: 1
