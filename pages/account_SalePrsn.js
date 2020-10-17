@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { Card } from 'react-native-paper';
