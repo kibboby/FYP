@@ -57,20 +57,8 @@ export default class ListofCompany extends Component {
           <View style={styles.pieChartArea} />
           <View style={{ marginLeft: 20 }}>
             <View style={styles.Direction}>
-              <Text style={styles.Text}>Total Number of User</Text>
-              <Text style={styles.User}>100</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.TextAdmin}>Total Number of Company Admin</Text>
-              <Text style={styles.Admin}>80</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.TextSalesperson}>Total Number of Salesperson</Text>
-              <Text style={styles.Salesperson}>20</Text>
-            </View>
-            <View style={styles.Direction}>
               <Text style={styles.TextLeads}>Total Number of Leads</Text>
-              <Text style={styles.Leads}>20</Text>
+              <Text style={styles.User}>20</Text>
             </View>
             <View style={styles.Direction}>
               <Text style={styles.WonLeadNo}>Total Number of Won Leads</Text>
@@ -194,7 +182,7 @@ const styles = StyleSheet.create({
     color: 'grey',
     marginRight: 59
   },
-  WonLeadNo:{
+  WonLeadNo: {
     marginRight: 32,
     marginTop: 2.5,
     marginLeft: 15,
@@ -203,7 +191,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'grey'
   },
-  LostLeadNo:{
+  LostLeadNo: {
     marginRight: 34,
     marginTop: 2.5,
     marginLeft: 17,
@@ -212,7 +200,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'grey'
   },
-  User:{
+  User: {
     marginTop: 2.5,
     marginStart: 35,
     fontSize: 24,
@@ -223,40 +211,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5,
   },
-  Admin:{
-    marginTop: 2.5,
-    marginStart: 35,
-    fontSize: 24,
-    fontWeight: 'bold',
-    backgroundColor: '#ffdead',
-    width: '15%',
-    textAlign: 'center',
-    borderRadius: 5,
-    padding: 5,
-  },
-  Salesperson:{
-    marginTop: 2.5,
-    marginStart: 35,
-    fontSize: 24,
-    fontWeight: 'bold',
-    backgroundColor: '#f4a460',
-    width: '15%',
-    textAlign: 'center',
-    borderRadius: 5,
-    padding: 5
-  },
-  Leads:{
-    marginTop: 2.5,
-    marginStart: 35,
-    fontSize: 24,
-    fontWeight: 'bold',
-    backgroundColor: '#a0522d',
-    width: '15%',
-    textAlign: 'center',
-    borderRadius: 5,
-    padding: 5
-  },
-  Won:{
+  Won: {
     marginTop: 2.5,
     marginStart: 35,
     fontSize: 24,
@@ -267,7 +222,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 5
   },
-  Lost:{
+  Lost: {
     marginTop: 2.5,
     marginStart: 35,
     fontSize: 24,
