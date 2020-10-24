@@ -13,7 +13,7 @@ import Account from './Account_CA.js';
 import AccountSetting from './AccountSetting_CA.js';
 import ProfileSetting from './ProfileSetting_CA.js';
 import NotificationSetting from './NotificationSetting_CA.js';
-import ChangePasswordSetting from './ChangePasswordSetting.js';
+import ChangePasswordSetting from './ChangePasswordSetting_CA.js';
 
 //Leads Related Pages for Company Admin
 import Remarks from './Remarks_CA.js';

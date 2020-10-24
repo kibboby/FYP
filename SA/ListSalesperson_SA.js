@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, FlatList, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import { Card } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -9,30 +9,43 @@ export default class ListofEmployee extends Component {
 
         this.state = {
             EmployeeList: [
-                { Image: '', SalespersonName: 'John David', CompanyName: 'Facebook', Designation: 'Salesperson' }
-                , { Image: '', SalespersonName: 'John David', CompanyName: 'Facebook', Designation: 'Salesperson' }
+                { Image: '', SalespersonName: 'John David', CompanyName: 'Facebook'}
+                , { Image: '', SalespersonName: 'John David', CompanyName: 'Facebook'}
             ]
         }
-    }
-
-    //to be further implemented by onPress function to go to lead's detail page
-    getEmployeeData = (item) => {
-        //var RollNo = item.RollNo;
-        //var StudentName = item.StudentName;
-        //var Course = item.Course;
-
-        //alert(RollNo + "\n" + StudentName + "\n" + Course);
     }
 
     render() {
         return (
             <View style={{ flex: 1, padding: '10%' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-start'}}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Overall Report')}
+                        style={styles.nav}>
+                        <Text style={styles.navTitle}>Overall Report</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('List of Company')}
+                        style={styles.nav}>
+                        <Text style={styles.navTitle}>Company Report</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('List of Salesperson')}
+                        style={styles.cardActive}>
+                        <Text style={styles.activeTitle}>Salesperson Report</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('List of Leads')}
+                        style={styles.nav}>
+                        <Text style={styles.navTitle}>Leads Report</Text>
+                    </TouchableOpacity>
+                </View>
                 <ScrollView>
                     <FlatList
                         data={this.state.EmployeeList}
                         renderItem={({ item }) =>
 
-                            <Card style={styles.card} onPress={() => this.getEmployeeData(item)}>
+                            <Card style={styles.card} onPress={() => this.props.navigation.navigate('Salesperson Detail')}>
                                 <View style={styles.cardView}>
                                     <Icon
                                         name='user'
@@ -41,7 +54,6 @@ export default class ListofEmployee extends Component {
                                     <View style={styles.texts}>
                                         <Text style={styles.Name}>{item.SalespersonName}</Text>
                                         <Text style={styles.CompanyName}>({item.CompanyName})</Text>
-                                        <Text style={styles.Designation}>{item.Designation}</Text>
                                     </View>
                                 </View>
                             </Card>
@@ -54,6 +66,29 @@ export default class ListofEmployee extends Component {
 }
 
 const styles = StyleSheet.create({
+    nav: {
+        margin: 5,
+        backgroundColor: 'lightgrey',
+        padding: 5,
+        textAlign: 'center',
+        borderRadius: 5,
+        width: '20%'
+    },
+    navTitle: {
+        fontSize: 12
+    },
+    cardActive: {
+        backgroundColor: 'black',
+        width: '25%',
+        textAlign: 'center',
+        borderRadius: 5,
+        margin: 5,
+        padding: 5
+    },
+    activeTitle: {
+        color: 'white',
+        fontSize: 12
+    },
     displayContainer: {
         flexDirection: 'row',
     },

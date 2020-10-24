@@ -42,17 +42,17 @@ export default class ListofCompany extends Component {
 
           <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={()=> this.props.navigation.navigate('Company Details')}
               style={styles.cardActive}>
               <Text style={styles.activeTitle}>Company Detail</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={()=> this.props.navigation.navigate('Company Report')}
               style={styles.nav}>
               <Text style={styles.navTitle}>Company Report</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={()=> this.props.navigation.navigate('Company Leads')}
               style={styles.nav}>
               <Text style={styles.navTitle}>Company Leads</Text>
             </TouchableOpacity>
@@ -78,7 +78,7 @@ export default class ListofCompany extends Component {
           <FlatList
             data={this.state.AdminList}
             renderItem={({ item }) =>
-              <Card style={styles.card2} onPress={() => this.getEmployeeData(item)}>
+              <Card style={styles.card2} onPress={() => this.props.navigation.navigate('Company Admin Account Detail')}>
                 <View style={styles.cardView2}>
                   <Icon
                     name='user'
@@ -100,7 +100,7 @@ export default class ListofCompany extends Component {
           <FlatList
             data={this.state.EmployeeList}
             renderItem={({ item }) =>
-              <Card style={styles.card2} onPress={() => this.getEmployeeData(item)}>
+              <Card style={styles.card2} onPress={() => this.props.navigation.navigate('Salesperson Account Detail')}>
                 <View style={styles.cardView2}>
                   <Icon
                     name='user'

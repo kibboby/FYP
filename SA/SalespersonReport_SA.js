@@ -37,18 +37,18 @@ export default class ListofCompany extends Component {
           <Text style={styles.Name}>John David</Text>
 
           <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-            <TouchableOpacity
-              onPress={this._onPressButton}
+          <TouchableOpacity
+              onPress={() =>this.props.navigation.navigate('Salesperson Detail')}
               style={styles.nav}>
               <Text style={styles.navTitle}>Detail</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={() =>this.props.navigation.navigate('Salesperson Report')}
               style={styles.cardActive}>
               <Text style={styles.activeTitle}>Report</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={() =>this.props.navigation.navigate('Salesperson Leads')}
               style={styles.nav}>
               <Text style={styles.navTitle}>Leads</Text>
             </TouchableOpacity>
@@ -56,18 +56,6 @@ export default class ListofCompany extends Component {
 
           <View style={styles.pieChartArea} />
           <View style={{ marginLeft: 20 }}>
-            <View style={styles.Direction}>
-              <Text style={styles.Text}>Total Number of User</Text>
-              <Text style={styles.User}>100</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.TextAdmin}>Total Number of Company Admin</Text>
-              <Text style={styles.Admin}>80</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.TextSalesperson}>Total Number of Salesperson</Text>
-              <Text style={styles.Salesperson}>20</Text>
-            </View>
             <View style={styles.Direction}>
               <Text style={styles.TextLeads}>Total Number of Leads</Text>
               <Text style={styles.Leads}>20</Text>

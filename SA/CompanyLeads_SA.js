@@ -38,17 +38,17 @@ export default class ListofCompany extends Component {
 
           <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={()=> this.props.navigation.navigate('Company Details')}
               style={styles.nav}>
               <Text style={styles.navTitle}>Company Detail</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={()=> this.props.navigation.navigate('Company Report')}
               style={styles.nav}>
               <Text style={styles.navTitle}>Company Report</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={this._onPressButton}
+              onPress={()=> this.props.navigation.navigate('Company Leads')}
               style={styles.cardActive}>
               <Text style={styles.activeTitle}>Company Leads</Text>
             </TouchableOpacity>
@@ -61,7 +61,7 @@ export default class ListofCompany extends Component {
           <FlatList
             data={this.state.LeadList}
             renderItem={({ item }) =>
-              <TouchableOpacity onPress={() => this.getLeadsData(item)}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Lead Detail')}>
                 <View style={styles.cardView}>
                   <Text style={styles.firstCol}>{item.Leads}    ({item.Company})</Text>
                   <Text style={styles.SecCol}>{item.Status}</Text>

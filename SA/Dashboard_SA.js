@@ -16,14 +16,6 @@ export default class ExampleTwo extends Component {
     }
   }
 
-  getCompanyData = (item) => {
-    //var RollNo = item.RollNo;
-    //var StudentName = item.StudentName;
-    //var Course = item.Course;
-
-    //alert(RollNo + "\n" + StudentName + "\n" + Course);
-  }
-
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -31,7 +23,7 @@ export default class ExampleTwo extends Component {
         <FlatList
           data={this.state.CompanyList}
           renderItem={({ item }) =>
-            <Card style={styles.cardView} onPress={() => this.getCompanyData(item)}>
+            <Card style={styles.cardView} onPress={() => this.props.navigation.navigate('Request')}>
               <View style={styles.LeadIcon}>
                 <Text style={{ flex: 1 }}>{item.Company} sent a a request for additional account(s)</Text>
                 <View style={{ justifyContent: "flex-end" }}>

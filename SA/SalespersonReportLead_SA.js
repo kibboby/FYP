@@ -27,17 +27,22 @@ export default class ListofCompany extends Component {
     return (
       <View style={{ flex: 1, padding: "10%" }}>
 
+        <Text style={styles.Name}>John David</Text>
         <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
           <TouchableOpacity
-            onPress={this._onPressButton}
+            onPress={() => this.props.navigation.navigate('Salesperson Detail')}
             style={styles.nav}>
-            <Text style={styles.navTitle}>Profile</Text>
+            <Text style={styles.navTitle}>Detail</Text>
           </TouchableOpacity>
-
           <TouchableOpacity
-            onPress={this._onPressButton}
-            style={styles.active}>
-            <Text style={styles.navTitle, styles.activeTitle}>Lead's Assigned</Text>
+            onPress={() => this.props.navigation.navigate('Salesperson Report')}
+            style={styles.nav}>
+            <Text style={styles.navTitle}>Report</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Salesperson Leads')}
+            style={styles.cardActive}>
+            <Text style={styles.activeTitle}>Leads</Text>
           </TouchableOpacity>
         </View>
 
@@ -49,9 +54,9 @@ export default class ListofCompany extends Component {
           <FlatList
             data={this.state.LeadList}
             renderItem={({ item }) =>
-              <View style={styles.cardView} onPress={() => this.getLeadsData(item)}>
-                <Text style={styles.firstCol}>{item.Leads}   ({item.Company})</Text>
-                <Text style={styles.SecCol}>{item.Status}</Text>
+              <View style={styles.cardView}>
+                <Text style={styles.firstCol} onPress={() => this.props.navigation.navigate('Lead Detail')}>{item.Leads}   ({item.Company})</Text>
+                <Text style={styles.SecCol} onPress={() => this.props.navigation.navigate('Lead Detail')}>{item.Status}</Text>
               </View>
             }
           />
@@ -63,6 +68,13 @@ export default class ListofCompany extends Component {
 
 
 const styles = StyleSheet.create({
+  Name: {
+    fontFamily: 'Roboto',
+    fontWeight: 'bold',
+    fontSize: 18,
+    marginLeft: 15,
+    marginTop: 10
+  },
   nav: {
     margin: 5,
     backgroundColor: 'lightgrey',
@@ -75,12 +87,11 @@ const styles = StyleSheet.create({
   navTitle: {
     fontSize: 12
   },
-  active: {
+  cardActive: {
     margin: 5,
     backgroundColor: 'black',
     padding: 5,
-    paddingTop: 5,
-    width: '30%',
+    width: '20%',
     textAlign: 'center',
     borderRadius: 5
   },

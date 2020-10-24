@@ -24,51 +24,51 @@ export default class ListofCompany extends Component {
     render() {
         return (
             <View style={{ flex: 1, padding: "10%" }}>
+                <ScrollView>
+                    <Text style={styles.CompanyName}>ABC Company</Text>
 
-                <Text style={styles.CompanyName}>ABC Company</Text>
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Company Details')}
+                            style={styles.nav}>
+                            <Text style={styles.navTitle}>Company Detail</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Company Report')}
+                            style={styles.cardActive}>
+                            <Text style={styles.activeTitle}>Company Report</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Company Leads')}
+                            style={styles.nav}>
+                            <Text style={styles.navTitle}>Company Leads</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-                    <TouchableOpacity
-                        onPress={this._onPressButton}
-                        style={styles.nav}>
-                        <Text style={styles.navTitle}>Company Detail</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={this._onPressButton}
-                        style={styles.cardActive}>
-                        <Text style={styles.activeTitle}>Company Report</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={this._onPressButton}
-                        style={styles.nav}>
-                        <Text style={styles.navTitle}>Company Leads</Text>
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.pieChartArea} />
-                <View style={{ marginLeft: 5 }}>
-                    <View style={styles.Direction}>
-                        <Text style={styles.TextAdmin}>Total Number of Company Admin</Text>
-                        <Text style={styles.Admin}>80</Text>
+                    <View style={styles.pieChartArea} />
+                    <View style={{ marginLeft: 5 }}>
+                        <View style={styles.Direction}>
+                            <Text style={styles.TextAdmin}>Total Number of Company Admin</Text>
+                            <Text style={styles.Admin}>80</Text>
+                        </View>
+                        <View style={styles.Direction}>
+                            <Text style={styles.TextSalesperson}>Total Number of Salesperson</Text>
+                            <Text style={styles.Salesperson}>20</Text>
+                        </View>
+                        <View style={styles.Direction}>
+                            <Text style={styles.TextLeads}>Total Number of Leads</Text>
+                            <Text style={styles.Leads}>20</Text>
+                        </View>
+                        <View style={styles.Direction}>
+                            <Text style={styles.WonLeadNo}>Total Number of Won Leads</Text>
+                            <Text style={styles.Won}>80</Text>
+                        </View>
+                        <View style={styles.Direction}>
+                            <Text style={styles.LostLeadNo}>Total Number of Lost Leads</Text>
+                            <Text style={styles.Lost}>20</Text>
+                        </View>
                     </View>
-                    <View style={styles.Direction}>
-                        <Text style={styles.TextSalesperson}>Total Number of Salesperson</Text>
-                        <Text style={styles.Salesperson}>20</Text>
-                    </View>
-                    <View style={styles.Direction}>
-                        <Text style={styles.TextLeads}>Total Number of Leads</Text>
-                        <Text style={styles.Leads}>20</Text>
-                    </View>
-                    <View style={styles.Direction}>
-                        <Text style={styles.WonLeadNo}>Total Number of Won Leads</Text>
-                        <Text style={styles.Won}>80</Text>
-                    </View>
-                    <View style={styles.Direction}>
-                        <Text style={styles.LostLeadNo}>Total Number of Lost Leads</Text>
-                        <Text style={styles.Lost}>20</Text>
-                    </View>
-                </View>
-
+                </ScrollView>
             </View>
         );
     }

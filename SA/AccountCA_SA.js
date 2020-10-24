@@ -1,18 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import Settings from 'react-native-vector-icons/AntDesign';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-const CompanyAccount = ({navigation}) => {
+const CompanyAdminAccountSuperAdmin = () => {
     return (
-        <View style={{flex: 1,padding: "10%",}}>
-             <Settings name='setting' size={25} style={{alignSelf:'flex-end'}} onPress={()=> this.navigation.navigate('Account Setting')} />
+        <View
+            style={{
+                flex: 1,
+                padding:"10%"
+            }}>
 
             <View style={styles.Icon}>
-                <Icon name='user-alt' size={45} style={styles.profileImg} />
+                <Icon
+                    name='user'
+                    size={55}
+                    style={styles.profileImg} />
                 <View>
-                    <Text style={styles.Username}> John David </Text>
-                    <Text style={styles.designation}>Salesperson </Text>
+                    <Text style={styles.Username}>
+                        John David
+                    </Text>
+                    <Text style={styles.designation}>
+                        Salesperson
+                    </Text>
                 </View>
             </View>
 
@@ -32,7 +41,7 @@ const CompanyAccount = ({navigation}) => {
                     <Text style={styles.Info}>abc@gmail.com</Text>
                 </View>
                 <View style={styles.Direction}>
-                    <Text style={[styles.Text, { marginEnd: 8 }]}>Address</Text>
+                    <Text style={[styles.Text, { marginEnd: 8 }]}>Contact</Text>
                     <Text style={styles.Info}>+6 012 345 6789</Text>
                 </View>
             </View>
@@ -40,7 +49,7 @@ const CompanyAccount = ({navigation}) => {
     )
 };
 
-export default CompanyAccount;
+export default CompanyAdminAccountSuperAdmin;
 
 const styles = StyleSheet.create({
     profileImg: {
@@ -52,8 +61,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         borderColor: 'black',
         borderWidth: 1,
-        paddingStart: 13,
-        paddingTop: 5
+        paddingStart: 15,
+        paddingTop: 4
     },
     Username: {
         marginLeft: 15,
@@ -64,10 +73,10 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         fontSize: 12,
     },
-    Icon: {
+    Icon:{
         flexDirection: 'row',
         marginTop: 10,
-    },
+    }    ,
     Direction: {
         flexDirection: 'row',
         marginTop: 10,
@@ -86,7 +95,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
     },
     Address: {
-        flexDirection: 'row',
+      flexDirection: 'row',
         marginTop: 10,
     }
 });

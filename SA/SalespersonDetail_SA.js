@@ -31,29 +31,28 @@ export default class ListofCompany extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <View style={{ flex: 1, padding: 5 }}>
 
-          <Text style={styles.Name}>John David</Text>
+      <View style={{ flex: 1, padding: "10%" }}>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-            <TouchableOpacity
-              onPress={this._onPressButton}
-              style={styles.cardActive}>
-              <Text style={styles.activeTitle}>Detail</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={this._onPressButton}
-              style={styles.nav}>
-              <Text style={styles.navTitle}>Report</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={this._onPressButton}
-              style={styles.nav}>
-              <Text style={styles.navTitle}>Leads</Text>
-            </TouchableOpacity>
-          </View>
-
+        <Text style={styles.Name}>John David</Text>
+        <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Salesperson Detail')}
+            style={styles.cardActive}>
+            <Text style={styles.activeTitle}>Detail</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Salesperson Report')}
+            style={styles.nav}>
+            <Text style={styles.navTitle}>Report</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('Salesperson Leads')}
+            style={styles.nav}>
+            <Text style={styles.navTitle}>Leads</Text>
+          </TouchableOpacity>
+        </View>
+        <ScrollView>
           <View style={styles.Direction}>
             <View style={styles.Text}>
               <Text style={styles.TextMargin}>Name</Text>
@@ -71,9 +70,9 @@ export default class ListofCompany extends Component {
               <Text style={styles.TextMargin}>+6 012 345 6789</Text>
             </View>
           </View>
+        </ScrollView>
+      </View>
 
-        </View>
-      </ScrollView>
     );
   }
 }
