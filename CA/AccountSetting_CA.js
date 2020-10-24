@@ -5,23 +5,9 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 //export default function App() {
 export default class Touchables extends Component {
-
-
-  _onprofilesettingButton() {
-    alert(' Profile Setting')
-  }
-
-  _onnotificationButton() {
-    alert('Notification')
-  }
-
-  _onchangepasswordButton() {
-    alert('Change Password')
-  }
-
-  _onRequestButton() {
-    alert('Request Account')
-  }
+  constructor(props) {
+    super(props);
+  };
 
   render() {
     return (
@@ -31,7 +17,7 @@ export default class Touchables extends Component {
             style={styles.AccButton}
             //onPress={this._onPressLoginButton}
             //disabled={!this.state.isFormValid}
-            onPress={this._onprofilesettingButton}
+            onPress={()=> this.props.navigation.navigate('Profile Setting')}
           >
             <Text style={styles.buttoncontent}>PROFILE SETTING</Text>
           </TouchableOpacity>
@@ -41,7 +27,7 @@ export default class Touchables extends Component {
             style={styles.AccButton}
             //onPress={this._onPressLoginButton}
             //disabled={!this.state.isFormValid}
-            onPress={this._onnotificationButton}
+            onPress={()=> this.props.navigation.navigate('Notification Setting')}
           >
             <Text style={styles.buttoncontent}>NOTIFICATION</Text>
           </TouchableOpacity>
@@ -51,7 +37,7 @@ export default class Touchables extends Component {
             style={styles.AccButton}
             //onPress={this._onPressLoginButton}
             //disabled={!this.state.isFormValid}
-            onPress={this._onchangepasswordButton}
+            onPress={()=> this.props.navigation.navigate('Change Password Setting')}
           >
             <Text style={styles.buttoncontent}>CHANGE PASSWORD</Text>
           </TouchableOpacity>

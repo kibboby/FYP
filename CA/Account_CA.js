@@ -1,27 +1,18 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import Settings from 'react-native-vector-icons/AntDesign';
 
-const CompanyAccount = () => {
+const CompanyAccount = ({navigation}) => {
     return (
-        <View
-            style={{
-                flex: 1,
-                padding: "10%",
-            }}>
+        <View style={{flex: 1,padding: "10%",}}>
+             <Settings name='setting' size={25} style={{alignSelf:'flex-end'}} onPress={()=> navigation.navigate('Account Setting')} />
 
             <View style={styles.Icon}>
-                <Icon
-                    name='user'
-                    size={55}
-                    style={styles.profileImg} />
+                <Icon name='user-alt' size={45} style={styles.profileImg} />
                 <View>
-                    <Text style={styles.Username}>
-                        John David
-                    </Text>
-                    <Text style={styles.designation}>
-                        Salesperson
-                    </Text>
+                    <Text style={styles.Username}> John David </Text>
+                    <Text style={styles.designation}>Salesperson </Text>
                 </View>
             </View>
 
@@ -61,8 +52,8 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         borderColor: 'black',
         borderWidth: 1,
-        paddingStart: 15,
-        paddingTop: 4
+        paddingStart: 13,
+        paddingTop: 5
     },
     Username: {
         marginLeft: 15,

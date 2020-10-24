@@ -27,17 +27,17 @@ export default class ListofCompany extends Component {
 
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
                     <TouchableOpacity
-                        onPress={this._onPressButton}
+                        onPress={()=> this.props.navigation.navigate('Company Report')}
                         style={styles.cardActive}>
                         <Text style={styles.activeTitle}>Company Report</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={this._onPressButton}
+                        onPress={()=> this.props.navigation.navigate('List of Salesperson')}
                         style={styles.nav}>
                         <Text style={styles.navTitle}>Salesperson Report</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={this._onPressButton}
+                        onPress={()=> this.props.navigation.navigate('Leads Report')}
                         style={styles.nav}>
                         <Text style={styles.navTitle}>Leads Report</Text>
                     </TouchableOpacity>
