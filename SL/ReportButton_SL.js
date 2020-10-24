@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, View, Text } from 'react-native';
-import { TouchableNativeFeedback } from 'react-native-gesture-handler';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class ButtonBasics extends Component {
-    _onPressButton() {
-        alert('You tapped the button!')
+    constructor(props){
+        super(props);
     }
 
     render() {
@@ -14,12 +14,12 @@ export default class ButtonBasics extends Component {
                     Click one of these options:
                 </Text>
                 <View style={styles.LayoutButtonContainer}>
-                    <TouchableNativeFeedback style={styles.ButtonWon} onPress={this._onPressButton}>
+                    <TouchableOpacity style={styles.ButtonWon} onPress={() => this.props.navigation.navigate('Won Leads Report')}>
                         <Text style={{ color: "#ffffff", textAlign: 'center', fontSize: 16 }}>WON LEADS</Text>
-                    </TouchableNativeFeedback>
-                    <TouchableNativeFeedback style={styles.ButtonLost} onPress={this._onPressButton}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.ButtonLost} onPress={() => this.props.navigation.navigate('Lost Leads Report')}>
                         <Text style={{ color: "#ffffff", textAlign: 'center', fontSize: 16 }}>LOST LEADS</Text>
-                    </TouchableNativeFeedback>
+                    </TouchableOpacity>
                 </View>
             </View>
         );

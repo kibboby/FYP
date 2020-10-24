@@ -70,7 +70,7 @@ export default class App extends Component {
               style={styles.Button}
               //onPress={this._onPressLoginButton}
               //disabled={!this.state.isFormValid}
-              onPress={this._onPressCancel}
+              onPress={()=> this.props.navigation.goBack()} 
             >
               <Text style={styles.ButtonContent}>Cancel</Text>
             </TouchableOpacity>
@@ -78,7 +78,7 @@ export default class App extends Component {
               style={styles.Button}
               //onPress={this._onPressLoginButton}
               //disabled={!this.state.isFormValid}
-              onPress={this._onPressSave}
+              onPress={()=> this.props.navigation.goBack()} 
             >
               <Text style={styles.ButtonContent}>Save</Text>
             </TouchableOpacity>

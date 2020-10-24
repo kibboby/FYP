@@ -5,19 +5,9 @@ import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 //export default function App() {
 export default class Touchables extends Component {
-
-
-_onprofilesettingButton () {
-    alert(' Profile Setting')
-  }
-
-_onnotificationButton () {
-    alert('Notification')
-  }
-
-_onchangepasswordButton () {
-    alert('Change Password')
-  }
+constructor(props){
+  super(props);
+}
 
 render(){
   return (
@@ -27,7 +17,7 @@ render(){
             style={styles.AccButton}
             //onPress={this._onPressLoginButton}
             //disabled={!this.state.isFormValid}
-            onPress={this._onprofilesettingButton}
+            onPress={() => this.props.navigation.navigate('Profile Settings')}
             >
             <Text style={styles.buttoncontent}>PROFILE SETTING</Text>
             </TouchableOpacity>
@@ -37,7 +27,7 @@ render(){
             style={styles.AccButton}
             //onPress={this._onPressLoginButton}
             //disabled={!this.state.isFormValid}
-            onPress={this._onnotificationButton}
+            onPress={() => this.props.navigation.navigate('Notification Settings')}
             >
             <Text style={styles.buttoncontent}>NOTIFICATION</Text>
             </TouchableOpacity>
@@ -47,7 +37,7 @@ render(){
             style={styles.AccButton}
             //onPress={this._onPressLoginButton}
             //disabled={!this.state.isFormValid}
-            onPress={this._onchangepasswordButton}
+            onPress={() => this.props.navigation.navigate('ChangePassword')}
             >
             <Text style={styles.buttoncontent}>CHANGE PASSWORD</Text>
             </TouchableOpacity>

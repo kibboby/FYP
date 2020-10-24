@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { Card } from 'react-native-paper';
+import Settings from 'react-native-vector-icons/AntDesign';
 
 export default class SalesPersonAccount extends Component {
 
@@ -16,18 +17,10 @@ export default class SalesPersonAccount extends Component {
     }
     render() {
         return (
-            <View
-                style={{
-                    flex: 1,
-                    padding:"10%"
-                }}>
-
-
+            <View style={{ flex: 1, padding: "10%" }}>
+                <Settings name='setting' size={25} style={{ alignSelf: 'flex-end' }} onPress={() => this.props.navigation.navigate('Account Settings')} />
                 <View style={styles.Direction}>
-                    <Icon
-                        name='user'
-                        size={55}
-                        style={styles.profileImg} />
+                    <Icon name='user' size={55} style={styles.profileImg} />
                     <View>
                         <Text style={styles.Username}>
                             John David
@@ -56,15 +49,15 @@ export default class SalesPersonAccount extends Component {
             </Text>
 
 
-            <FlatList
+                <FlatList
                     data={this.state.TaskList}
                     renderItem={({ item }) =>
 
                         <Card style={styles.card}>
                             <View style={styles.Task}>
-                                    <Text style={styles.Type}>{item.Type}</Text>
-                                    <Text style={styles.Date}> | </Text>
-                                    <Text style={styles.Date}>{item.Date}</Text>
+                                <Text style={styles.Type}>{item.Type}</Text>
+                                <Text style={styles.Date}> | </Text>
+                                <Text style={styles.Date}>{item.Date}</Text>
                             </View>
                         </Card>
                     }

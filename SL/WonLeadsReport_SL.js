@@ -7,18 +7,10 @@ export default class ExampleTwo extends Component {
     super(props);
     this.state = {
       LeadList: [
-        { Leads: 'Facebook', QuotationSent: 'RM100', QuotationAgreed: 'RM100' }
-        , { Leads: 'Facebook', QuotationSent: 'RM100', QuotationAgreed: 'RM100' }
+        { Leads: 'Facebook', CompanyName : 'Facebook Co', QuotationSent: 'RM100', QuotationAgreed: 'RM100' }
+        , { Leads: 'Facebook', CompanyName : 'Facebook Co', QuotationSent: 'RM100', QuotationAgreed: 'RM100' }
       ],
     }
-  }
-
-  getLeadsData = (item) => {
-    //var RollNo = item.RollNo;
-    //var StudentName = item.StudentName;
-    //var Course = item.Course;
-
-    //alert(RollNo + "\n" + StudentName + "\n" + Course);
   }
 
   render() {
@@ -32,10 +24,10 @@ export default class ExampleTwo extends Component {
         <FlatList
           data={this.state.LeadList}
           renderItem={({ item }) =>
-            <View style={styles.cardView} onPress={() => this.getLeadsData(item)}>
-              <Text style={styles.firstCol}>{item.Leads}</Text>
-              <Text style={styles.SecThirdCol}>{item.QuotationSent}</Text>
-              <Text style={styles.SecThirdCol}>{item.QuotationAgreed}</Text>
+            <View style={styles.cardView}>
+              <Text style={styles.firstCol} onPress={() => this.props.navigation.navigate('Lead Detail')}>{item.Leads}   ({item.CompanyName})</Text>
+              <Text style={styles.SecThirdCol} onPress={() => this.props.navigation.navigate('Lead Detail')}>{item.QuotationSent}</Text>
+              <Text style={styles.SecThirdCol} onPress={() => this.props.navigation.navigate('Lead Detail')}>{item.QuotationAgreed}</Text>
             </View>
           }
         />
@@ -48,7 +40,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: "10%",
-    //paddingTop: 30,
     backgroundColor: '#fff',
     marginTop:10
   },
