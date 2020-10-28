@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import { Card } from 'react-native-paper';
 
 export default class ListofCompany extends Component {
@@ -23,62 +23,64 @@ export default class ListofCompany extends Component {
 
   render() {
     return (
-      <ScrollView>
-        <View style={{ flex: 1, padding: '10%' }}>
+      <SafeAreaView>
+        <ScrollView>
+          <View style={{ flex: 1, padding: '10%' }}>
 
-          <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Overall Report')}
-              style={styles.cardActive}>
-              <Text style={styles.activeTitle}>Overall Report</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('List of Company')}
-              style={styles.nav}>
-              <Text style={styles.navTitle}>Company Report</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('List of Salesperson')}
-              style={styles.nav}>
-              <Text style={styles.navTitle}>Salesperson Report</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('List of Leads')}
-              style={styles.nav}>
-              <Text style={styles.navTitle}>Leads Report</Text>
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Overall Report')}
+                style={styles.cardActive}>
+                <Text style={styles.activeTitle}>Overall Report</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('List of Company')}
+                style={styles.nav}>
+                <Text style={styles.navTitle}>Company Report</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('List of Salesperson')}
+                style={styles.nav}>
+                <Text style={styles.navTitle}>Salesperson Report</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('List of Leads')}
+                style={styles.nav}>
+                <Text style={styles.navTitle}>Leads Report</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.pieChartArea} />
+            <View style={{ marginLeft: 20 }}>
+              <View style={styles.Direction}>
+                <Text style={styles.Text}>Total Number of User</Text>
+                <Text style={styles.User}>100</Text>
+              </View>
+              <View style={styles.Direction}>
+                <Text style={styles.TextAdmin}>Total Number of Company Admin</Text>
+                <Text style={styles.Admin}>80</Text>
+              </View>
+              <View style={styles.Direction}>
+                <Text style={styles.TextSalesperson}>Total Number of Salesperson</Text>
+                <Text style={styles.Salesperson}>20</Text>
+              </View>
+              <View style={styles.Direction}>
+                <Text style={styles.TextLeads}>Total Number of Leads</Text>
+                <Text style={styles.Leads}>20</Text>
+              </View>
+              <View style={styles.Direction}>
+                <Text style={styles.WonLeadNo}>Total Number of Won Leads</Text>
+                <Text style={styles.Won}>80</Text>
+              </View>
+              <View style={styles.Direction}>
+                <Text style={styles.LostLeadNo}>Total Number of Lost Leads</Text>
+                <Text style={styles.Lost}>20</Text>
+              </View>
+            </View>
+
           </View>
-
-          <View style={styles.pieChartArea} />
-          <View style={{ marginLeft: 20 }}>
-            <View style={styles.Direction}>
-              <Text style={styles.Text}>Total Number of User</Text>
-              <Text style={styles.User}>100</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.TextAdmin}>Total Number of Company Admin</Text>
-              <Text style={styles.Admin}>80</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.TextSalesperson}>Total Number of Salesperson</Text>
-              <Text style={styles.Salesperson}>20</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.TextLeads}>Total Number of Leads</Text>
-              <Text style={styles.Leads}>20</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.WonLeadNo}>Total Number of Won Leads</Text>
-              <Text style={styles.Won}>80</Text>
-            </View>
-            <View style={styles.Direction}>
-              <Text style={styles.LostLeadNo}>Total Number of Lost Leads</Text>
-              <Text style={styles.Lost}>20</Text>
-            </View>
-          </View>
-
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 }

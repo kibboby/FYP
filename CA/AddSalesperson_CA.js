@@ -5,6 +5,18 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView, TextInput 
 
 export default class App extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            SALES_name: '',
+            SALES_designation: '',
+            SALES_username: '',
+            SALES_email: '',
+            SALES_contact: '',
+            ActivityIndicator_Loading: false,
+        }
+    }
+
     _onPressCancel() {
         alert('Cancel')
     }
@@ -13,13 +25,34 @@ export default class App extends Component {
         alert('Save')
     }
 
-    state = {
-        username: '',
-        designation: '',
-        name: '',
-        email: '',
-        contact: '',
-    };
+
+    _Insert_Data_Into_MySQL() {
+        const url = 'http://localhost:80/BAckend/salespersonRegister.php';
+        fetch( url,
+            {
+                method: 'POST',
+                headers:
+                {
+                    'Origin': '*',
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(
+                    {
+                        username: this.state.SALES_username,
+                        Designation: this.state.SALES_designation,
+                        sales_name: this.state.SALES_name,
+                        sales_email: this.state.SALES_email,
+                        sales_contact: this.state.SALES_contact
+                    })
+
+            }).then((response) => response.json()).then((responseJsonFromServer) => {
+                alert(responseJsonFromServer);
+
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
 
     render() {
         return (
@@ -29,35 +62,35 @@ export default class App extends Component {
                     <TextInput
                         //secureTextEntry={true} 
                         style={styles.input}
-                        onChangeText={text => this.setState({ username: text })}
+                        onChangeText={text => this.setState({ SALES_username: text })}
                     />
 
                     <Text style={styles.instruction}>Designation</Text>
                     <TextInput
                         //secureTextEntry={true} 
                         style={styles.input}
-                        onChangeText={text => this.setState({ designation: text })}
+                        onChangeText={text => this.setState({ SALES_designation: text })}
                     />
 
                     <Text style={styles.instruction}>Name</Text>
                     <TextInput
                         //secureTextEntry={true} 
                         style={styles.input}
-                        onChangeText={text => this.setState({ name: text })}
+                        onChangeText={text => this.setState({ SALES_name: text })}
                     />
 
                     <Text style={styles.instruction}>Email</Text>
                     <TextInput
                         //secureTextEntry={true} 
                         style={styles.input}
-                        onChangeText={text => this.setState({ email: text })}
+                        onChangeText={text => this.setState({ SALES_email: text })}
                     />
 
                     <Text style={styles.instruction}>Contact</Text>
                     <TextInput
                         //secureTextEntry={true} 
                         style={styles.input}
-                        onChangeText={text => this.setState({ contact: text })}
+                        onChangeText={text => this.setState({ SALES_contact: text })}
                     />
 
 
@@ -66,7 +99,7 @@ export default class App extends Component {
                             style={styles.Button}
                             //onPress={this._onPressLoginButton}
                             //disabled={!this.state.isFormValid}
-                            onPress={()=> this.props.navigation.goBack()}     
+                            onPress={() => this.props.navigation.goBack()}
                         >
                             <Text style={styles.ButtonContent}>Cancel</Text>
                         </TouchableOpacity>
@@ -74,12 +107,10 @@ export default class App extends Component {
                             style={styles.Button}
                             //onPress={this._onPressLoginButton}
                             //disabled={!this.state.isFormValid}
-                            onPress={()=> this.props.navigation.navigate('List of Salesperson')}
+                            onPress={() => this._Insert_Data_Into_MySQL()}
                         >
                             <Text style={styles.ButtonContent}>Save</Text>
                         </TouchableOpacity>
-
-
                     </View>
 
                     <StatusBar style="auto" />
