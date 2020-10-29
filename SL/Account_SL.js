@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, ActivityIndicator } from 'react-native';
 import { Card } from 'react-native-paper';
 import Settings from 'react-native-vector-icons/AntDesign';
 
@@ -10,61 +10,83 @@ export default class SalesPersonAccount extends Component {
         super(props);
 
         this.state = {
+            isLoading = true,
             TaskList: [
                 { Type: 'Others', Date: '25/11/2020' }
             ]
         }
     }
+
+    componentDidMount() {
+        return fetch('http://localhost/BAckend/retrieveAccountInfo.php')
+            .then((response) => response.json())
+            .then((responseJson) => {
+                let ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+                this.setState({
+                    isLoading: false,
+                    dataSource: ds.cloneWithRows(responseJson),
+                }, function () {
+                    // In this block you can do something with new state.
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     render() {
-        return (
-            <View style={{ flex: 1, padding: "10%" }}>
-                <Settings name='setting' size={25} style={{ alignSelf: 'flex-end' }} onPress={() => this.props.navigation.navigate('Account Settings')} />
-                <View style={styles.Direction}>
-                    <Icon name='user' size={55} style={styles.profileImg} />
-                    <View>
-                        <Text style={styles.Username}>
-                            John David
+        if (this.state.isLoading) {
+            return (
+                <View style={{ flex: 1, padding: "10%" }}>
+                    <ActivityIndicator/>
+                    <Settings name='setting' size={25} style={{ alignSelf: 'flex-end' }} onPress={() => this.props.navigation.navigate('Account Settings')} />
+                    <View style={styles.Direction}>
+                        <Icon name='user' size={55} style={styles.profileImg} />
+                        <View>
+                            <Text style={styles.Username}>
+                                John David
                     </Text>
-                        <Text style={styles.designation}>
-                            Salesperson
+                            <Text style={styles.designation}>
+                                Salesperson
                     </Text>
+                        </View>
                     </View>
-                </View>
-                <View style={styles.Direction}>
-                    <View style={styles.Text}>
-                        <Text style={styles.TextMargin}>Name</Text>
-                        <Text style={styles.TextMargin}>Email</Text>
-                        <Text style={styles.TextMargin}>Contact</Text>
+                    <View style={styles.Direction}>
+                        <View style={styles.Text}>
+                            <Text style={styles.TextMargin}>Name</Text>
+                            <Text style={styles.TextMargin}>Email</Text>
+                            <Text style={styles.TextMargin}>Contact</Text>
+                        </View>
+
+                        <View style={styles.Info}>
+                            <Text style={styles.TextMargin}>John David Beckham</Text>
+                            <Text style={styles.TextMargin}>abc@gmail.com</Text>
+                            <Text style={styles.TextMargin}>+6 012 345 6789</Text>
+                        </View>
                     </View>
 
-                    <View style={styles.Info}>
-                        <Text style={styles.TextMargin}>John David Beckham</Text>
-                        <Text style={styles.TextMargin}>abc@gmail.com</Text>
-                        <Text style={styles.TextMargin}>+6 012 345 6789</Text>
-                    </View>
-                </View>
-
-                <Text style={styles.TaskTitle}>
-                    UPCOMING TASKS
+                    <Text style={styles.TaskTitle}>
+                        UPCOMING TASKS
             </Text>
 
 
-                <FlatList
-                    data={this.state.TaskList}
-                    renderItem={({ item }) =>
+                    <FlatList
+                        data={this.state.TaskList}
+                        renderItem={({ item }) =>
 
-                        <Card style={styles.card}>
-                            <View style={styles.Task}>
-                                <Text style={styles.Type}>{item.Type}</Text>
-                                <Text style={styles.Date}> | </Text>
-                                <Text style={styles.Date}>{item.Date}</Text>
-                            </View>
-                        </Card>
-                    }
-                    keyExtractor={item => item.ID}
-                />
-            </View>
-        )
+                            <Card style={styles.card}>
+                                <View style={styles.Task}>
+                                    <Text style={styles.Type}>{item.Type}</Text>
+                                    <Text style={styles.Date}> | </Text>
+                                    <Text style={styles.Date}>{item.Date}</Text>
+                                </View>
+                            </Card>
+                        }
+                        keyExtractor={item => item.ID}
+                    />
+                </View>
+            )
+        }
     }
 }
 
