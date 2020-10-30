@@ -8,6 +8,7 @@ import { StyleSheet, Text, View, TextInput, Button,TouchableOpacity, ImageBackgr
 //export default function App() {
 export default class Touchables extends Component {
 
+////////////////////////testing//////////////////////////
  _onPressLoginButton() {
     //alert('Wrong username/password')
     //this.props.navigation.navigate('./Dashboard_CA.js')
@@ -41,6 +42,7 @@ export default class Touchables extends Component {
         alert('Invalid username/password')
     }
   }
+//////////////////////////////////////////////////
 
   _onPressForgotButton() {
     alert('You May Reset Your Password Here')
@@ -71,7 +73,7 @@ export default class Touchables extends Component {
                 method: 'POST',
                 headers:
                 {
-                    'Origin': '*',
+                   'Origin': '*',
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
@@ -83,29 +85,35 @@ export default class Touchables extends Component {
 
             }).then((response) => response.json()).then((responseJsonFromServer) => {
 
-            if(responseJsonFromServer=== 'CA')
+            //var responseJsonFromServer =JSON.parse(responseJsonFromServer);
+
+            if(responseJsonFromServer== 'CA')
             {
             //Then open Profile activity and send user email to profile activity.
             ////this.props.navigation.navigate('Second', { Email: UserEmail });
-            alert('Log in as Company admin')
+            //alert('Log in as Company admin')
+            this.props.navigation.navigate('CAPage')
             }
 
-             if(responseJsonFromServer === 'SL')
+             else if(responseJsonFromServer == 'SL')
             {
             //Then open Profile activity and send user email to profile activity.
            ////this.props.navigation.navigate('Second', { Email: UserEmail });
-            alert('Log in as Salesperson')
+            //alert('Log in as Salesperson')
+            this.props.navigation.navigate('SLPage')
             }
 
-             if(responseJsonFromServer === 'SA')
+             else if(responseJsonFromServer == 'SA')
             {
             //Then open Profile activity and send user email to profile activity.
             ////this.props.navigation.navigate('Second', { Email: UserEmail });
-             alert('Log in as Super admin')
+             //alert('Log in as Super admin')
+             this.props.navigation.navigate('SAPage')
             }
-             else
+            else
             {
             alert('Invalid USERNAME or PASSWORD')
+            //alert(responseJsonFromServer)
             }
 
             }).catch((error) => {
@@ -156,8 +164,8 @@ export default class Touchables extends Component {
     <View>
         <TouchableOpacity
          style={styles.LoginButton}
-         //onPress={() => this._Login_MySQL()}
-         onPress={() => this._onPressLoginButton()}
+         onPress={() => this._Login_MySQL()}
+         //onPress={() => this._onPressLoginButton()}
          //disabled={!this.state.isFormValid}
          >
          <Text style={styles.Login}>SIGN IN</Text>
