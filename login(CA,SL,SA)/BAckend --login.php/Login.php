@@ -8,7 +8,9 @@ $obj = json_decode($Received_JSON, true);
 
 $Login_username = $obj["username"];
 
-$Login_password = $obj["password"];
+$Login_password_encode = $obj["password"];
+
+$Login_password=base64_decode($Login_password_encode);
 
 //Checking User entered username and password is correct
 $CheckSQL = "select role FROM user_login WHERE username='$Login_username' and password='$Login_password'";

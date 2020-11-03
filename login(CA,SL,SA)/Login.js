@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {StackNavigator,} from 'react-navigation';
 //import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button,TouchableOpacity, ImageBackground} from 'react-native';
+import { Base64 } from 'js-base64';
 
 
 //export default function App() {
@@ -74,13 +75,14 @@ export default class Touchables extends Component {
                 headers:
                 {
                    'Origin': '*',
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                   'Accept': 'application/json',
+                   'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(
                     {
                         username: this.state.LOGIN_username,
-                        password: this.state.LOGIN_password
+                        //password: this.state.LOGIN_password
+                        password: Base64.encode(this.state.LOGIN_password)
                     })
 
             }).then((response) => response.json()).then((responseJsonFromServer) => {
@@ -172,7 +174,7 @@ export default class Touchables extends Component {
      </TouchableOpacity>
      </View>
      <Text >{"username====>"+this.state.LOGIN_username }</Text>
-     <Text >{"password====>"+this.state.LOGIN_password }</Text>
+    <Text >{"password====>"+Base64.encode(this.state.LOGIN_password) }</Text>
      </View>
 
   
