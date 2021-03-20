@@ -51,7 +51,6 @@ if (isset($EmailSales)) {
 	echo $sucessfulmsg;
 } 
 
-
 else if (isset($EmailCompanyA)) {
 
 	$CompanyA= $EmailCompanyA;
